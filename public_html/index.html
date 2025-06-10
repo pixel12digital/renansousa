@@ -8,26 +8,34 @@ header('Content-Type: text/html; charset=utf-8');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renan Sousa</title>
     
-    <!-- Critical CSS inline: apenas para layout e texto básico -->
+    <!-- CSS crítico mínimo para texto e fundo acessível -->
     <style>
       body { font-family: Arial, Helvetica, sans-serif; color: #222; background: #fff; margin:0; padding:0; }
-      .header, .hero-section, .hero-content, .cta-button { box-sizing: border-box; }
-      .hero-section { min-height: 60vh; display: flex; align-items: center; justify-content: center; background: #f8f8f8; }
-      .hero-content { text-align: center; padding: 2rem; }
-      .cta-button { display: inline-block; background: #2B2D42; color: white; padding: 18px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1.1em; margin-top: 1.5rem; }
+      .hero-content, .section-title, .section-subtitle, .highlight-text, .cta-button, .about-text, .text-blocks, .main-title, .subtitle, .contact-title, .contact-subtitle, .content-text, .form-header, .form-header h2, .form-header p {
+        color: #222 !important;
+        background: #fff !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+      }
+      .cta-button { background: #222; color: #fff; border-radius: 8px; padding: 1em 2em; text-decoration: none; display: inline-block; margin-top: 1em; }
+      a { color: #222; text-decoration: underline; }
+      header, nav, .hero-section, .about-section, .services-section, .portfolio-section, .financing-section, .testimonials-section, .contact-section, footer {
+        background: #fff !important;
+        color: #222 !important;
+      }
+      /* Esconde imagens, banners, ícones, carrosséis, vídeos, botões flutuantes e elementos visuais */
+      img, .slider-container, .slide, .about-video, .video-wrapper, .play-button, .carousel-container, .carousel, .carousel-track, .carousel-button, .carousel-dots, .service-icon, .testimonial-image, .quote-icon, .whatsapp-float, .footer-logo, .social-links, .social-icon, .video-column, .video-thumb, .main-footer img, .footer-brand img, .footer-brand .social-links, .footer-brand .footer-logo, .footer-brand .footer-slogan, .footer-content .social-links, .footer-content .footer-logo, .footer-content .footer-slogan {
+        display: none !important;
+      }
     </style>
-
-    <!-- CSS principal adiado -->
+    <!-- CSS completo adiado -->
     <link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
-
-    <!-- Fontes Google e Font Awesome adiadas -->
+    <!-- Fontes e ícones adiados -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"></noscript>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-
-    <!-- JavaScript -->
+    <!-- JavaScript adiado -->
     <script src="assets/js/mobile-menu.js" defer></script>
 </head>
 <body>
@@ -1504,7 +1512,7 @@ header('Content-Type: text/html; charset=utf-8');
                 <!-- Coluna 2 - Vídeo -->
                 <div class="video-column">
                     <div class="video-wrapper">
-                        <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb">
+                        <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb" width="800" height="533">
                         <div class="play-button" onclick="openVideo('1_edb_sGuO0')">
                             <i class="fas fa-play"></i>
                         </div>
