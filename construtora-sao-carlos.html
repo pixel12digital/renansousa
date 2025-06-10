@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Construtora em São Carlos - Renan Sousa Engenharia e Construção. Qualidade, segurança e eficiência para sua obra.">
+    <meta name="keywords" content="construtora, São Carlos, construção civil, obras, engenharia, reforma, qualidade, segurança">
+    <meta name="author" content="Renan Sousa Engenharia e Construção">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" as="style">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #FFFFFF;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 4vw 2rem 4vw;
+            background: #393B53;
+            position: relative;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+        .company-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: #bfc12e;
+            margin-bottom: 2rem;
+        }
+        .main-text {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #fff;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+        .highlight {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #fff;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        .cta {
+            font-family: 'Playfair Display', cursive, serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #bfc12e;
+            font-style: italic;
+            margin-top: 2rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 2rem 1rem; }
+            .hero-content { max-width: 100%; text-align: center; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" media="print" onload="this.media='all'">
+    <title>Construtora em São Carlos | Renan Sousa Engenharia e Construção</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Renan Sousa Engenharia e Construção",
+        "description": "Construtora em São Carlos. Qualidade, segurança e eficiência para sua obra.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "São Carlos",
+            "addressRegion": "SP",
+            "addressCountry": "BR"
+        },
+        "serviceType": "Construção Civil e Engenharia",
+        "areaServed": "São Carlos e região"
+    }
+    </script>
+</head>
+<body>
+    <main class="hero">
+        <div class="hero-content">
+            <h1 class="company-title">Construtora em São Carlos</h1>
+            <div class="main-text">Especialistas em transformar projetos em realidade com qualidade, segurança e eficiência.</div>
+            <div class="highlight">Sua obra merece o cuidado de uma equipe experiente e dedicada. Atuamos em São Carlos e região, oferecendo soluções completas em construção civil e engenharia.</div>
+            <div class="cta">Solicite um orçamento e construa seu sonho com a Renan Sousa Engenharia e Construção!</div>
+        </div>
+    </main>
+    <script>
+        // Performance optimization script
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').catch(function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html> 
