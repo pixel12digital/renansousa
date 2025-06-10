@@ -33,69 +33,57 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 3rem 4vw 2rem 4vw;
+            background: #393B53;
             position: relative;
-            overflow: hidden;
         }
         
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.3;
+            content: none;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
         }
         
-        .company-name {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .company-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
             font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            color: #bfc12e;
+            margin-bottom: 2rem;
         }
         
-        .tagline {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        .main-text {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #fff;
+            margin-bottom: 1.2rem;
             font-weight: 600;
-            color: #FFFFFF;
-            margin-bottom: 2rem;
-            opacity: 0.95;
         }
         
-        .description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: #FFFFFF;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .main-text span {
+            font-weight: 400;
         }
         
-        .location {
-            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-            font-weight: 600;
-            color: #FFFFFF;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+        .highlight {
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #fff;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+            display: block;
         }
         
         .cta {
-            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-            font-weight: 600;
-            color: #FFFFFF;
-            opacity: 0.9;
+            font-family: 'Playfair Display', cursive, serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: #bfc12e;
+            font-style: italic;
+            margin-top: 2rem;
+            font-weight: 500;
         }
         
         /* Loading animation */
@@ -111,7 +99,11 @@
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .hero {
-                padding: 1rem;
+                padding: 2rem 1rem;
+            }
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -143,28 +135,10 @@
 <body>
     <main class="hero">
         <div class="hero-content">
-            <h1 class="company-name fade-in">Renan Sousa</h1>
-            <h2 class="company-name fade-in" style="animation-delay: 0.2s;">Engenharia e Construção</h2>
-            
-            <p class="tagline fade-in" style="animation-delay: 0.4s;">
-                Transformamos ideias e sonhos em realidade.
-            </p>
-            
-            <p class="description fade-in" style="animation-delay: 0.6s;">
-                Com exclusividade, transparência, carinho e cuidado.
-            </p>
-            
-            <p class="description fade-in" style="animation-delay: 0.8s;">
-                Cada família é única e merece ter o seu porto seguro projetado, planejado e construído com Qualidade, Segurança e Eficiência
-            </p>
-            
-            <p class="location fade-in" style="animation-delay: 1s;">
-                Construtora em São Carlos
-            </p>
-            
-            <p class="cta fade-in" style="animation-delay: 1.2s;">
-                Entregue os seus sonhos em nossas mãos!
-            </p>
+            <h1 class="company-title">Renan Sousa Engenharia e Construção</h1>
+            <div class="main-text">Transformamos ideias e sonhos em realidade. Com exclusividade, transparência, carinho e cuidado.</div>
+            <div class="highlight">Cada família é única e merece ter o seu porto seguro projetado, planejado e construído com Qualidade, Segurança e Eficiência</div>
+            <div class="cta">Construtora em São Carlos. Entregue os seus sonhos em nossas mãos!</div>
         </div>
     </main>
 
