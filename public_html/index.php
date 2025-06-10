@@ -8,30 +8,16 @@ header('Content-Type: text/html; charset=utf-8');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renan Sousa</title>
     
-    <!-- CSS crítico para texto e fundo acessível, sem esconder permanentemente imagens e elementos visuais -->
-    <style>
-      body { font-family: Arial, Helvetica, sans-serif; color: #222; background: #fff; margin:0; padding:0; }
-      .hero-content, .section-title, .section-subtitle, .highlight-text, .cta-button, .about-text, .text-blocks, .main-title, .subtitle, .contact-title, .contact-subtitle, .content-text, .form-header, .form-header h2, .form-header p {
-        color: #222 !important;
-        background: #fff !important;
-        font-family: Arial, Helvetica, sans-serif !important;
-      }
-      .cta-button { background: #222; color: #fff; border-radius: 8px; padding: 1em 2em; text-decoration: none; display: inline-block; margin-top: 1em; }
-      a { color: #222; text-decoration: underline; }
-      header, nav, .hero-section, .about-section, .services-section, .portfolio-section, .financing-section, .testimonials-section, .contact-section, footer {
-        background: #fff !important;
-        color: #222 !important;
-      }
-    </style>
-    <!-- CSS completo adiado -->
-    <link rel="stylesheet" href="assets/css/style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
-    <!-- Fontes e ícones adiados -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"></noscript>
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-    <!-- JavaScript adiado -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- JavaScript -->
     <script src="assets/js/mobile-menu.js" defer></script>
 </head>
 <body>
@@ -1508,7 +1494,7 @@ header('Content-Type: text/html; charset=utf-8');
                 <!-- Coluna 2 - Vídeo -->
                 <div class="video-column">
                     <div class="video-wrapper">
-                        <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb" width="800" height="533">
+                        <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb">
                         <div class="play-button" onclick="openVideo('1_edb_sGuO0')">
                             <i class="fas fa-play"></i>
                         </div>
