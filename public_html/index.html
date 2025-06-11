@@ -60,6 +60,19 @@ header('Content-Type: text/html; charset=utf-8');
         }
     }
     </style>
+
+    <style>
+    @media (min-width: 993px) {
+        .hamburger-menu {
+            display: none !important;
+        }
+    }
+    @media (max-width: 992px) {
+        .hamburger-menu {
+            display: flex !important;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- PRIMEIRA DOBRA: Só texto principal, fundo escuro, zero delay -->
