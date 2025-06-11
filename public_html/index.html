@@ -57,11 +57,11 @@ header('Content-Type: text/html; charset=utf-8');
                 </div>
                 
                 <!-- Botão Hamburger para Mobile -->
-                <div class="hamburger-menu" id="hamburgerMenu">
+                <button type="button" class="hamburger-menu" id="hamburgerMenu" aria-label="Abrir menu de navegação">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 
                 <!-- Remover social-links do header -->
                 <!-- <div class="social-links"> ... </div> -->
@@ -1896,7 +1896,7 @@ header('Content-Type: text/html; charset=utf-8');
             <div class="footer-bottom">
                 <div class="container">
                     <p>© 2025 Criado por Renan Sousa Engenharia e Construção - Todos os direitos reservados<br>
-                    <span style="font-size:0.95em;">Desenvolvimento <a href="https://pixel12digital.com.br" target="_blank" style="color:#4D4D00;text-decoration:underline;">Pixel12Digital</a></span></p>
+                    <span style="font-size:0.95em;">Desenvolvimento <a href="https://pixel12digital.com.br" target="_blank" style="color:#FFFFFF;text-decoration:underline;">Pixel12Digital</a></span></p>
                 </div>
             </div>
         </footer>
@@ -1930,9 +1930,11 @@ header('Content-Type: text/html; charset=utf-8');
         .footer-slogan,
         .footer-menu h4,
         .footer-contact h4,
+        .footer-menu ul li a,
         .footer-menu ul li a:hover,
+        .contact-link,
         .contact-link:hover {
-            color: #4D4D00;
+            color: #FFFFFF;
         }
 
         .social-links {
@@ -1953,8 +1955,8 @@ header('Content-Type: text/html; charset=utf-8');
         }
 
         .social-icon:hover {
-            background: #4D4D00;
-            color: white;
+            background: #FFFFFF;
+            color: #2B2D42;
             transform: translateY(-3px);
         }
 
