@@ -21,7 +21,7 @@ header('Content-Type: text/html; charset=utf-8');
     <script src="assets/js/mobile-menu.js" defer></script>
 </head>
 <body>
-    <!-- PRIMEIRA DOBRA: Só texto principal, fundo azul, zero delay -->
+    <!-- PRIMEIRA DOBRA: Só texto principal, fundo escuro, zero delay -->
     <div id="primeira-dobra" style="
         min-height: 100vh;
         background: #2B2D42;
@@ -2160,12 +2160,12 @@ header('Content-Type: text/html; charset=utf-8');
     </div>
 
     <script>
-      // Após 2s, some a primeira dobra e exiba o restante do site normalmente
+      // Após 3.5s, some a primeira dobra e exiba o restante do site normalmente
       setTimeout(function() {
         document.getElementById('primeira-dobra').style.display = 'none';
         document.getElementById('restante-site').style.display = '';
         window.scrollTo(0, 0); // Garante que o usuário fique no topo
-      }, 2000);
+      }, 3500);
     </script>
 </body>
 </html>
