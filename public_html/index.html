@@ -2160,12 +2160,12 @@ header('Content-Type: text/html; charset=utf-8');
     </div>
 
     <script>
-      // Após 3.5s, some a primeira dobra e exiba o restante do site normalmente
+      // Após 2s, some a primeira dobra e exiba o restante do site normalmente
       setTimeout(function() {
         document.getElementById('primeira-dobra').style.display = 'none';
         document.getElementById('restante-site').style.display = '';
         window.scrollTo(0, 0); // Garante que o usuário fique no topo
-      }, 3500);
+      }, 2000);
     </script>
 </body>
 </html>
