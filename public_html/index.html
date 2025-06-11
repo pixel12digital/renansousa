@@ -1264,11 +1264,11 @@ header('Content-Type: text/html; charset=utf-8');
                 </div>
 
                 <div class="testimonial-controls">
-                    <button class="prev-testimonial">
+                    <button class="prev-testimonial" aria-label="Depoimento anterior">
                         <i class="fas fa-chevron-left"></i>
                     </button>
                     <div class="testimonial-dots"></div>
-                    <button class="next-testimonial">
+                    <button class="next-testimonial" aria-label="Próximo depoimento">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
@@ -2042,7 +2042,7 @@ header('Content-Type: text/html; charset=utf-8');
         </style>
 
         <!-- Botão Flutuante WhatsApp -->
-        <a href="https://api.whatsapp.com/send/?phone=%2B5516992646303&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+seus+servi%C3%A7os" class="whatsapp-float" target="_blank">
+        <a href="https://api.whatsapp.com/send/?phone=%2B5516992646303&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+seus+servi%C3%A7os" class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
             <i class="fab fa-whatsapp"></i>
             <span class="tooltip">Fale Conosco!</span>
         </a>
@@ -2143,6 +2143,19 @@ header('Content-Type: text/html; charset=utf-8');
                     display: none;
                 }
             }
+        </style>
+
+        <style>
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0,0,0,0);
+          border: 0;
+        }
         </style>
     </div>
 
