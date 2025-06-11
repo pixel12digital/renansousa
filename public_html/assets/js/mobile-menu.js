@@ -161,8 +161,5 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburgerMenu.setAttribute('aria-label', 'Abrir menu de navegação');
     closeMobileMenu.setAttribute('aria-label', 'Fechar menu de navegação');
     
-    // Adicionar role para acessibilidade
-    mobileMenu.setAttribute('role', 'dialog');
-    mobileMenu.setAttribute('aria-modal', 'true');
     mobileMenu.setAttribute('aria-label', 'Menu de navegação');
 }); 
