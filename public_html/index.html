@@ -438,107 +438,12 @@ header('Content-Type: text/html; charset=utf-8');
                         <a href="https://api.whatsapp.com/send/?phone=%2B5516992646303&text=Ol%C3%A1%21+Vamos+te+ajudar+a+concretizar+o+seu+sonho%21+Entre+em+contato+conosco%21&type=phone_number&app_absent=0" class="cta-button about-cta" target="_blank">Entre em Contato</a>
                     </div>
                     <div class="about-video">
-                        <div class="video-wrapper">
-                            <img src="assets/images/Capa-Video-Institucional.png.webp" alt="Vídeo Institucional Renan Sousa" loading="lazy" width="350" height="456">
-                            <div class="play-button" onclick="openVideo('c2jaLNjUJAE')">
+                        <div class="video-wrapper" id="aboutVideoWrapper" style="cursor:pointer;">
+                            <img src="assets/images/Capa-Video-Institucional.png.webp" alt="Vídeo Institucional Renan Sousa" loading="lazy" width="350" height="456" id="aboutVideoThumb">
+                            <div class="play-button" id="aboutPlayButton">
                                 <span class="play-icon">
                                     <i class="fas fa-play"></i>
                                 </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Modal do Vídeo -->
-        <div id="videoModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="video-container">
-                    <iframe id="youtubeVideo" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <section class="services-section" id="servicos">
-            <div class="container">
-                <h2 class="section-subtitle text-center">Nossos Serviços</h2>
-                <p class="section-description text-center">Nós iremos te guiar ao longo de todo o processo construtivo, com transparência, cuidado e atenção</p>
-                
-                <div class="services-grid">
-                    <div class="service-card" data-service="terreno">
-                        <div class="service-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3>Escolha do Terreno</h3>
-                        <p>Nós te auxiliamos em uma das etapas mais importantes, pois a escolha do terreno envolve custo, valorização do imóvel, funcionalidade e satisfação.</p>
-                        <div class="service-hover">
-                            <div class="hover-content">
-                                <h5>Benefícios</h5>
-                                <ul>
-                                    <li>Análise de valorização</li>
-                                    <li>Avaliação topográfica</li>
-                                    <li>Estudo de viabilidade</li>
-                                    <li>Documentação legal</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card" data-service="projetos">
-                        <div class="service-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h3>Elaboração dos Projetos</h3>
-                        <p>Temos uma equipe multidisciplinar para elaborar os principais projetos da obra: arquitetônico, estrutural, elétrico, hidrossanitário e de interiores</p>
-                        <div class="service-hover">
-                            <div class="hover-content">
-                                <h5>Tipos de Projetos</h5>
-                                <ul>
-                                    <li>Projeto Arquitetônico</li>
-                                    <li>Projeto Estrutural</li>
-                                    <li>Projeto Elétrico</li>
-                                    <li>Projeto Hidrossanitário</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card" data-service="administracao">
-                        <div class="service-icon">
-                            <i class="fas fa-tasks"></i>
-                        </div>
-                        <h3>Administração da Obra</h3>
-                        <p>Iremos administrar a sua obra com total transparência, planejamento e eficiência para atendermos tanto a qualidade, como o prazo e orçamento.</p>
-                        <div class="service-hover">
-                            <div class="hover-content">
-                                <h5>Gestão Completa</h5>
-                                <ul>
-                                    <li>Cronograma detalhado</li>
-                                    <li>Controle financeiro</li>
-                                    <li>Gestão de fornecedores</li>
-                                    <li>Relatórios periódicos</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="service-card" data-service="execucao">
-                        <div class="service-icon">
-                            <i class="fas fa-hard-hat"></i>
-                        </div>
-                        <h3>Execução da Obra</h3>
-                        <p>Nossa equipe de execução é composta de pessoas qualificadas, educadas e muito comprometidas. Todos em busca de superarmos a sua expectativa.</p>
-                        <div class="service-hover">
-                            <div class="hover-content">
-                                <h5>Diferenciais</h5>
-                                <ul>
-                                    <li>Equipe especializada</li>
-                                    <li>Materiais de qualidade</li>
-                                    <li>Segurança no trabalho</li>
-                                    <li>Limpeza e organização</li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -1566,9 +1471,9 @@ header('Content-Type: text/html; charset=utf-8');
 
                     <!-- Coluna 2 - Vídeo -->
                     <div class="video-column">
-                        <div class="video-wrapper">
-                            <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb">
-                            <div class="play-button" onclick="openVideo('1_edb_sGuO0')">
+                        <div class="video-wrapper" id="contactVideoWrapper" style="cursor:pointer;">
+                            <img src="assets/images/Capa-Video-Casa-05.webp" alt="Capa do vídeo" class="video-thumb" id="contactVideoThumb">
+                            <div class="play-button" id="contactPlayButton">
                                 <i class="fas fa-play"></i>
                             </div>
                         </div>
@@ -2224,6 +2129,43 @@ header('Content-Type: text/html; charset=utf-8');
         document.getElementById('restante-site').style.display = '';
         window.scrollTo(0, 0); // Garante que o usuário fique no topo
       }, 2000);
+    </script>
+
+    <script>
+      document.getElementById('aboutVideoWrapper').onclick = function() {
+        this.innerHTML = `
+          <iframe 
+            src="https://www.youtube.com/embed/c2jaLNjUJAE?autoplay=1" 
+            title="Vídeo Institucional Renan Sousa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;">
+          </iframe>
+        `;
+        this.style.paddingTop = '0';
+        this.style.height = '0';
+        this.style.position = 'relative';
+        this.style.paddingBottom = '130%';
+      };
+    </script>
+
+    <script>
+      document.getElementById('contactVideoWrapper').onclick = function() {
+        this.innerHTML = `
+          <iframe 
+            src="https://www.youtube.com/embed/1_edb_sGuO0?autoplay=1" 
+            title="Vídeo Casa 05 - Renan Sousa"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"></iframe>
+        `;
+        this.style.paddingTop = '0';
+        this.style.height = '0';
+        this.style.position = 'relative';
+        this.style.paddingBottom = '130%';
+      };
     </script>
 </body>
 </html>
