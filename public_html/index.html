@@ -2167,6 +2167,33 @@ header('Content-Type: text/html; charset=utf-8');
         this.style.paddingBottom = '130%';
       };
     </script>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Pega os valores dos campos
+        var nome = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var telefone = document.getElementById('phone').value.trim();
+        var mensagem = document.getElementById('message').value.trim();
+
+        // Monta a mensagem
+        var texto = `Olá! Gostaria de mais informações sobre construção.\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*Celular:* ${telefone}\n*Mensagem:* ${mensagem}`;
+
+        // Codifica para URL
+        var textoEncoded = encodeURIComponent(texto);
+
+        // Número do WhatsApp (sem espaços, com DDI e DDD)
+        var numero = '5516992646303';
+
+        // Monta o link do WhatsApp
+        var link = `https://wa.me/${numero}?text=${textoEncoded}`;
+
+        // Abre o WhatsApp
+        window.open(link, '_blank');
+    });
+    </script>
 </body>
 </html>
 
