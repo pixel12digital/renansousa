@@ -140,7 +140,7 @@ header('Content-Type: text/html; charset=utf-8');
         height: 100%;
         backface-visibility: hidden;
         border-radius: 20px;
-        padding: 38px 28px;
+        padding: 48px 32px 48px 32px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -150,10 +150,16 @@ header('Content-Type: text/html; charset=utf-8');
         overflow: hidden;
     }
     .card-back {
-        background: linear-gradient(135deg, #7A7711 0%, #9a9711 100%);
-        color: #fff;
+        background: #ABA821 !important;
+        color: #2B2D42 !important;
         transform: rotateY(180deg);
         overflow-y: auto;
+    }
+    .card-back h3, .card-back ul, .card-back li {
+        color: #2B2D42 !important;
+    }
+    .card-back i {
+        color: #2B2D42 !important;
     }
     .service-card {
         min-height: 370px;
@@ -663,10 +669,11 @@ header('Content-Type: text/html; charset=utf-8');
                     padding: 40px 0;
                 }
                 .service-card {
-                    min-height: 260px;
+                    min-height: 480px !important;
+                    height: auto !important;
                 }
                 .card-front, .card-back {
-                    padding: 18px 8px;
+                    padding: 32px 16px 32px 16px !important;
                 }
             }
         </style>
