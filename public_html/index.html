@@ -83,6 +83,95 @@ header('Content-Type: text/html; charset=utf-8');
     })(window,document,'script','dataLayer','GTM-W4T66DD');
     </script>
     <!-- End Google Tag Manager -->
+
+    <style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .hero-section {
+        position: relative;
+        min-height: calc(100vh + 160px);
+        height: auto;
+        width: 100vw;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        background: #2B2D42;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: calc(100vh + 100px) !important;
+      }
+    }
+
+    .hero-section::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 80px;
+        background: #fff;
+        border-radius: 100% 100% 0 0;
+        z-index: 10;
+        pointer-events: none;
+    }
+    .stats-section {
+        position: relative;
+        margin-top: -80px;
+        z-index: 1;
+        background: #fff;
+    }
+    </style>
+
+    <!-- Ajustar CSS dos cards para flip e conteúdo completo -->
+    <style>
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 20px;
+        padding: 38px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        box-shadow: 0 10px 30px rgba(43, 45, 66, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+    .card-back {
+        background: linear-gradient(135deg, #7A7711 0%, #9a9711 100%);
+        color: #fff;
+        transform: rotateY(180deg);
+        overflow-y: auto;
+    }
+    .service-card {
+        min-height: 370px;
+        height: 100%;
+        perspective: 1000px;
+        background: transparent !important;
+    }
+    .card-inner {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.4,0.2,0.2,1);
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    .service-card.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+    </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -473,7 +562,6 @@ header('Content-Type: text/html; charset=utf-8');
                 padding: 80px 0;
                 background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             }
-
             .services-section .section-description {
                 max-width: 800px;
                 margin: 0 auto 50px;
@@ -481,7 +569,6 @@ header('Content-Type: text/html; charset=utf-8');
                 color: #666;
                 line-height: 1.6;
             }
-
             .services-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -490,336 +577,214 @@ header('Content-Type: text/html; charset=utf-8');
                 max-width: 1200px;
                 margin: 0 auto;
             }
-
             .service-card {
-                position: relative;
-                background: white;
+                perspective: 1200px;
+                background: transparent;
                 border-radius: 15px;
-                padding: 30px;
-                text-align: center;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-                overflow: hidden;
                 cursor: pointer;
                 min-height: 350px;
+                transition: box-shadow 0.3s;
             }
-
-            .service-card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            }
-
-            .service-icon {
-                font-size: 2.5em;
-                color: #2B2D42;
-                margin-bottom: 20px;
-                transition: all 0.3s ease;
-            }
-
-            .service-card:hover .service-icon {
-                transform: scale(1.1);
-            }
-
-            .service-card h3 {
-                color: #333;
-                font-size: 1.5em;
-                margin-bottom: 15px;
-                font-weight: 600;
-            }
-
-            .service-card p {
-                color: #666;
-                line-height: 1.6;
-                margin-bottom: 20px;
-            }
-
-            .service-hover {
-                position: absolute;
-                top: 0;
-                left: 0;
+            .service-card .card-inner {
+                position: relative;
                 width: 100%;
                 height: 100%;
-                background: rgba(43, 45, 66, 0.95);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                opacity: 0;
-                transition: all 0.3s ease;
+                transition: transform 0.6s cubic-bezier(0.4,0.2,0.2,1);
+                transform-style: preserve-3d;
+            }
+            .service-card.flipped .card-inner {
+                transform: rotateY(180deg);
+            }
+            .card-front, .card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                background: #2B2D42;
+                color: #fff;
                 border-radius: 15px;
-                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+                padding: 30px 20px 30px 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
             }
-
-            .service-card:hover .service-hover {
-                opacity: 1;
+            .card-front {
+                z-index: 2;
             }
-
-            .hover-content {
-                color: white;
-                transform: translateY(20px);
-                transition: all 0.3s ease;
+            .card-back {
+                transform: rotateY(180deg);
+                z-index: 1;
             }
-
-            .service-card:hover .hover-content {
-                transform: translateY(0);
+            .card-icon {
+                font-size: 2.8em;
+                margin-bottom: 18px;
+                color: #7A7711;
             }
-
-            .hover-content h4 {
-                font-size: 1.3em;
-                margin-bottom: 15px;
-                font-weight: 600;
+            .service-card h3 {
+                font-size: 1.4em;
+                font-weight: 700;
+                margin-bottom: 12px;
+                color: #fff;
             }
-
-            .hover-content ul {
+            .service-card p, .service-card ul, .service-card li {
+                color: #fff;
+            }
+            .card-hint {
+                margin-top: 18px;
+                font-size: 0.95em;
+                color: #fff;
+                opacity: 0.7;
+            }
+            .card-back ul {
                 list-style: none;
                 padding: 0;
                 margin: 0;
             }
-
-            .hover-content li {
+            .card-back li {
                 margin: 10px 0;
-                font-size: 1.1em;
-                opacity: 0;
-                transform: translateX(-20px);
-                transition: all 0.3s ease;
+                font-size: 1.08em;
+                display: flex;
+                align-items: center;
+                gap: 8px;
             }
-
-            .service-card:hover .hover-content li {
-                opacity: 1;
-                transform: translateX(0);
-                transition-delay: calc(0.1s * var(--i));
+            .card-back i {
+                color: #7A7711;
             }
-
-            @media (max-width: 768px) {
+            @media (max-width: 900px) {
                 .services-grid {
                     grid-template-columns: 1fr;
-                    padding: 10px;
                 }
-                
+            }
+            @media (max-width: 600px) {
+                .services-section {
+                    padding: 40px 0;
+                }
                 .service-card {
-                    min-height: auto;
-                    padding: 20px;
+                    min-height: 260px;
+                }
+                .card-front, .card-back {
+                    padding: 18px 8px;
                 }
             }
         </style>
-
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Header scroll effect
-                window.addEventListener('scroll', function() {
-                    const header = document.querySelector('header');
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                });
-
-                // Banner slider with Ken Burns effect
-                const slides = document.querySelectorAll('.slide');
-                let currentSlide = 0;
-                const slideInterval = 5000; // 5 segundos por slide
-
-                function nextSlide() {
-                    // Fade out suave do slide atual
-                    slides[currentSlide].style.opacity = '0';
-                    slides[currentSlide].classList.remove('active');
-                    
-                    // Calcula próximo slide
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    
-                    // Transição suave com timing dinâmico
-                    setTimeout(() => {
-                        // Reset da posição inicial
-                        slides[currentSlide].style.transition = 'none';
-                        slides[currentSlide].style.opacity = '0';
-                        
-                        // Força o reflow para aplicar o reset
-                        slides[currentSlide].offsetHeight;
-                        
-                        // Aplica a transição e ativa o slide
-                        slides[currentSlide].style.transition = '';
-                        slides[currentSlide].style.opacity = '1';
-                        slides[currentSlide].classList.add('active');
-                    }, 100);
-                }
-
-                // Inicia o slider com um pequeno delay inicial
-                setTimeout(() => {
-                    slides[0].classList.add('active');
-                    setInterval(nextSlide, slideInterval);
-                }, 500);
-                
-                // Debug info
-                console.log('Total slides:', slides.length);
-                console.log('Initial slide:', currentSlide + 1);
-
-                // Add animation delay to service card list items
-                document.querySelectorAll('.hover-content li').forEach((item, index) => {
-                    item.style.setProperty('--i', index + 1);
-                });
-            });
-
-            // Função para animar o contador
-            function animateCounter(element, target, duration = 2000) {
-                let start = 0;
-                const prefix = element.dataset.prefix || '';
-                const suffix = element.dataset.suffix || '';
-                const increment = target / (duration / 16); // 60 FPS
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-                    const elapsed = currentTime - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-
-                    // Usando easing para suavizar a animação
-                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                    const current = Math.floor(target * easeOutQuart);
-
-                    // Formatando o número para melhor legibilidade
-                    let displayNumber = current;
-                    if (target >= 1000) {
-                        displayNumber = (current / 1000).toFixed(1);
-                    }
-
-                    element.textContent = `${prefix}${displayNumber}${suffix}`;
-
-                    if (progress < 1) {
-                        requestAnimationFrame(updateCounter);
-                    }
-                }
-
-                requestAnimationFrame(updateCounter);
-            }
-
-            // Configurando o Intersection Observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Anima todos os contadores quando a seção ficar visível
-                        document.querySelectorAll('.stat-number').forEach(counter => {
-                            const target = parseInt(counter.dataset.target);
-                            animateCounter(counter, target);
-                        });
-                        // Desconecta o observer após a animação começar
-                        observer.disconnect();
-                    }
-                });
-            }, { threshold: 0.3 }); // Trigger quando 30% da seção estiver visível
-
-            // Observando a seção de estatísticas
-            observer.observe(document.querySelector('.stats-section'));
-
-            // Funcionalidade do Modal de Vídeo
-            function openVideo(videoId) {
-                const modal = document.getElementById('videoModal');
-                const iframe = document.getElementById('youtubeVideo');
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                modal.style.display = 'flex';
-
-                // Fecha o modal quando clicar no X
-                document.querySelector('.close-modal').onclick = function() {
-                    closeVideo();
-                }
-
-                // Fecha o modal quando clicar fora dele
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        closeVideo();
-                    }
-                }
-            }
-
-            function closeVideo() {
-                const modal = document.getElementById('videoModal');
-                const iframe = document.getElementById('youtubeVideo');
-                iframe.src = '';
-                modal.style.display = 'none';
-            }
-
-            // Funções do carrossel
-            let currentSlides = {1: 1, 2: 1, 3: 1, 4: 1};
-            let totalSlides = {1: 0, 2: 0, 3: 0, 4: 0};
-
-            function moveCarousel(direction, carouselId) {
-                const track = document.querySelector(`#carousel${carouselId} .carousel-track`);
-                const slides = track.children.length;
-                
-                currentSlides[carouselId] = currentSlides[carouselId] + direction;
-                
-                if (currentSlides[carouselId] > slides) {
-                    currentSlides[carouselId] = 1;
-                }
-                if (currentSlides[carouselId] < 1) {
-                    currentSlides[carouselId] = slides;
-                }
-                
-                updateCarousel(carouselId);
-                updateDots(carouselId);
-            }
-
-            function updateCarousel(carouselId) {
-                const track = document.querySelector(`#carousel${carouselId} .carousel-track`);
-                const slideWidth = track.parentElement.offsetWidth;
-                const newPosition = -(currentSlides[carouselId] - 1) * slideWidth;
-                track.style.transform = `translateX(${newPosition}px)`;
-            }
-
-            function updateDots(carouselId) {
-                const dots = document.querySelectorAll(`#dots${carouselId} .dot`);
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index + 1 === currentSlides[carouselId]);
-                });
-            }
-
-            function createDots(carouselId, numSlides) {
-                const dotsContainer = document.getElementById(`dots${carouselId}`);
-                for (let i = 0; i < numSlides; i++) {
-                    const dot = document.createElement('span');
-                    dot.classList.add('dot');
-                    if (i === 0) dot.classList.add('active');
-                    dot.onclick = () => {
-                        currentSlides[carouselId] = i + 1;
-                        updateCarousel(carouselId);
-                        updateDots(carouselId);
-                    };
-                    dotsContainer.appendChild(dot);
-                }
-            }
-
-            // Atualiza carrosséis no redimensionamento
-            window.addEventListener('resize', () => {
-                for (let i = 1; i <= 4; i++) {
-                    updateCarousel(i);
-                }
-            });
-
-            // Inicializa os dots do primeiro carrossel
-            document.addEventListener('DOMContentLoaded', function() {
-                // Carrossel 1
-                const carousel1Track = document.querySelector('#carousel1 .carousel-track');
-                const numSlides1 = carousel1Track.children.length;
-                totalSlides[1] = numSlides1;
-                createDots(1, numSlides1);
-
-                // Carrossel 2 (Casa 183)
-                const carousel2Track = document.querySelector('#carousel2 .carousel-track');
-                const numSlides2 = carousel2Track.children.length;
-                totalSlides[2] = numSlides2;
-                createDots(2, numSlides2);
-
-                // Carrossel 3 (Casa 107)
-                const carousel3Track = document.querySelector('#carousel3 .carousel-track');
-                const numSlides3 = carousel3Track.children.length;
-                totalSlides[3] = numSlides3;
-                createDots(3, numSlides3);
-
-                // Carrossel 4 (Projeto A&N)
-                const carousel4Track = document.querySelector('#carousel4 .carousel-track');
-                const numSlides4 = carousel4Track.children.length;
-                totalSlides[4] = numSlides4;
-                createDots(4, numSlides4);
-            });
+        // Efeito flip dos cards de serviço
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
         </script>
+
+        <section class="services-section" id="servicos">
+            <div class="container">
+                <h2 class="section-title text-center">Nossos Serviços</h2>
+                <p class="section-description text-center">Soluções completas para sua obra, do projeto à entrega das chaves</p>
+                <div class="services-grid">
+                    <!-- Card 1: Elaboração de Projetos -->
+                    <div class="service-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-icon">
+                                    <i class="fas fa-drafting-compass"></i>
+                                </div>
+                                <h3>Elaboração de Projetos</h3>
+                                <p>Projetos arquitetônicos, estruturais, elétricos e hidrossanitários</p>
+                                <div class="card-hint">
+                                    <i class="fas fa-hand-pointer"></i> Clique para mais detalhes
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Elaboração de Projetos</h3>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Projeto Arquitetônico completo</li>
+                                    <li><i class="fas fa-check"></i> Projeto Estrutural detalhado</li>
+                                    <li><i class="fas fa-check"></i> Projeto Elétrico e hidrossanitário</li>
+                                    <li><i class="fas fa-check"></i> Aprovação junto aos órgãos competentes</li>
+                                    <li><i class="fas fa-check"></i> Acompanhamento técnico</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2: Execução de Obras -->
+                    <div class="service-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-icon">
+                                    <i class="fas fa-hard-hat"></i>
+                                </div>
+                                <h3>Execução de Obras</h3>
+                                <p>Pedreiro, pintura, elétrica e toda mão de obra especializada</p>
+                                <div class="card-hint">
+                                    <i class="fas fa-hand-pointer"></i> Clique para mais detalhes
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Execução de Obras</h3>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Alvenaria e estrutura</li>
+                                    <li><i class="fas fa-check"></i> Instalações elétricas e hidráulicas</li>
+                                    <li><i class="fas fa-check"></i> Acabamentos e pintura</li>
+                                    <li><i class="fas fa-check"></i> Mão de obra especializada</li>
+                                    <li><i class="fas fa-check"></i> Controle de qualidade</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3: Gestão de Obras -->
+                    <div class="service-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <h3>Gestão de Obras</h3>
+                                <p>Administração, orçamento, compras e fiscalização técnica</p>
+                                <div class="card-hint">
+                                    <i class="fas fa-hand-pointer"></i> Clique para mais detalhes
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Gestão de Obras</h3>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Orçamento e planejamento</li>
+                                    <li><i class="fas fa-check"></i> Compra de materiais</li>
+                                    <li><i class="fas fa-check"></i> Administração da mão de obra</li>
+                                    <li><i class="fas fa-check"></i> Fiscalização técnica</li>
+                                    <li><i class="fas fa-check"></i> Controle de prazos e custos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 4: Financiamento Imobiliário -->
+                    <div class="service-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="card-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h3>Financiamento Imobiliário</h3>
+                                <p>Condução completa do processo de financiamento</p>
+                                <div class="card-hint">
+                                    <i class="fas fa-hand-pointer"></i> Clique para mais detalhes
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <h3>Financiamento Imobiliário</h3>
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Simulação de crédito</li>
+                                    <li><i class="fas fa-check"></i> Aprovação do financiamento</li>
+                                    <li><i class="fas fa-check"></i> Assinatura do contrato</li>
+                                    <li><i class="fas fa-check"></i> Acompanhamento do processo</li>
+                                    <li><i class="fas fa-check"></i> Financiamento terreno + construção</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="portfolio-section" id="nossos-trabalhos">
             <div class="container">
@@ -1836,7 +1801,8 @@ header('Content-Type: text/html; charset=utf-8');
                             <li><a href="#home">Home</a></li>
                             <li><a href="#sobre">Sobre nós</a></li>
                             <li><a href="#nossos-trabalhos">Nossos Trabalhos</a></li>
-                            <li><a href="#servicos">Nossos Serviços</a></li>
+                            <li><a href="#servicos">Serviços</a></li>
+                            <li><a href="#financiamento">Financiamento Terreno e Construção</a></li>
                             <li><a href="#contato">Contato</a></li>
                         </ul>
                     </div>
@@ -1894,7 +1860,11 @@ header('Content-Type: text/html; charset=utf-8');
         .footer-brand {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+        .social-links {
+            margin-top: 18px !important;
         }
 
         .footer-logo {
@@ -2019,6 +1989,29 @@ header('Content-Type: text/html; charset=utf-8');
                 align-items: center;
             }
         }
+
+        @media (min-width: 769px) {
+        .footer-contact {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-contact .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-contact h4 {
+            width: 100%;
+            text-align: center;
+        }
+        .footer-contact .contact-link {
+            justify-content: center;
+            display: flex;
+        }
+        }
         </style>
 
         <!-- Botão Flutuante WhatsApp -->
@@ -2137,6 +2130,289 @@ header('Content-Type: text/html; charset=utf-8');
           border: 0;
         }
         </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Header scroll effect
+                window.addEventListener('scroll', function() {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+
+                // Banner slider with Ken Burns effect
+                const slides = document.querySelectorAll('.slide');
+                let currentSlide = 0;
+                const slideInterval = 5000; // 5 segundos por slide
+
+                function nextSlide() {
+                    // Fade out suave do slide atual
+                    slides[currentSlide].style.opacity = '0';
+                    slides[currentSlide].classList.remove('active');
+                    
+                    // Calcula próximo slide
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    
+                    // Transição suave com timing dinâmico
+                    setTimeout(() => {
+                        // Reset da posição inicial
+                        slides[currentSlide].style.transition = 'none';
+                        slides[currentSlide].style.opacity = '0';
+                        
+                        // Força o reflow para aplicar o reset
+                        slides[currentSlide].offsetHeight;
+                        
+                        // Aplica a transição e ativa o slide
+                        slides[currentSlide].style.transition = '';
+                        slides[currentSlide].style.opacity = '1';
+                        slides[currentSlide].classList.add('active');
+                    }, 100);
+                }
+
+                // Inicia o slider com um pequeno delay inicial
+                setTimeout(() => {
+                    slides[0].classList.add('active');
+                    setInterval(nextSlide, slideInterval);
+                }, 500);
+                
+                // Debug info
+                console.log('Total slides:', slides.length);
+                console.log('Initial slide:', currentSlide + 1);
+
+                // Add animation delay to service card list items
+                document.querySelectorAll('.hover-content li').forEach((item, index) => {
+                    item.style.setProperty('--i', index + 1);
+                });
+            });
+
+            // Função para animar o contador
+            function animateCounter(element, target, duration = 2000) {
+                let start = 0;
+                const prefix = element.dataset.prefix || '';
+                const suffix = element.dataset.suffix || '';
+                const increment = target / (duration / 16); // 60 FPS
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+
+                    // Usando easing para suavizar a animação
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(target * easeOutQuart);
+
+                    // Formatando o número para melhor legibilidade
+                    let displayNumber = current;
+                    if (target >= 1000) {
+                        displayNumber = (current / 1000).toFixed(1);
+                    }
+
+                    element.textContent = `${prefix}${displayNumber}${suffix}`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+            }
+
+            // Configurando o Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Anima todos os contadores quando a seção ficar visível
+                        document.querySelectorAll('.stat-number').forEach(counter => {
+                            const target = parseInt(counter.dataset.target);
+                            animateCounter(counter, target);
+                        });
+                        // Desconecta o observer após a animação começar
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 }); // Trigger quando 30% da seção estiver visível
+
+            // Observando a seção de estatísticas
+            observer.observe(document.querySelector('.stats-section'));
+
+            // Funcionalidade do Modal de Vídeo
+            function openVideo(videoId) {
+                const modal = document.getElementById('videoModal');
+                const iframe = document.getElementById('youtubeVideo');
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modal.style.display = 'flex';
+
+                // Fecha o modal quando clicar no X
+                document.querySelector('.close-modal').onclick = function() {
+                    closeVideo();
+                }
+
+                // Fecha o modal quando clicar fora dele
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        closeVideo();
+                    }
+                }
+            }
+
+            function closeVideo() {
+                const modal = document.getElementById('videoModal');
+                const iframe = document.getElementById('youtubeVideo');
+                iframe.src = '';
+                modal.style.display = 'none';
+            }
+
+            // Funções do carrossel
+            let currentSlides = {1: 1, 2: 1, 3: 1, 4: 1};
+            let totalSlides = {1: 0, 2: 0, 3: 0, 4: 0};
+
+            function moveCarousel(direction, carouselId) {
+                const track = document.querySelector(`#carousel${carouselId} .carousel-track`);
+                const slides = track.children.length;
+                
+                currentSlides[carouselId] = currentSlides[carouselId] + direction;
+                
+                if (currentSlides[carouselId] > slides) {
+                    currentSlides[carouselId] = 1;
+                }
+                if (currentSlides[carouselId] < 1) {
+                    currentSlides[carouselId] = slides;
+                }
+                
+                updateCarousel(carouselId);
+                updateDots(carouselId);
+            }
+
+            function updateCarousel(carouselId) {
+                const track = document.querySelector(`#carousel${carouselId} .carousel-track`);
+                const slideWidth = track.parentElement.offsetWidth;
+                const newPosition = -(currentSlides[carouselId] - 1) * slideWidth;
+                track.style.transform = `translateX(${newPosition}px)`;
+            }
+
+            function updateDots(carouselId) {
+                const dots = document.querySelectorAll(`#dots${carouselId} .dot`);
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index + 1 === currentSlides[carouselId]);
+                });
+            }
+
+            function createDots(carouselId, numSlides) {
+                const dotsContainer = document.getElementById(`dots${carouselId}`);
+                for (let i = 0; i < numSlides; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.onclick = () => {
+                        currentSlides[carouselId] = i + 1;
+                        updateCarousel(carouselId);
+                        updateDots(carouselId);
+                    };
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            // Atualiza carrosséis no redimensionamento
+            window.addEventListener('resize', () => {
+                for (let i = 1; i <= 4; i++) {
+                    updateCarousel(i);
+                }
+            });
+
+            // Inicializa os dots do primeiro carrossel
+            document.addEventListener('DOMContentLoaded', function() {
+                // Carrossel 1
+                const carousel1Track = document.querySelector('#carousel1 .carousel-track');
+                const numSlides1 = carousel1Track.children.length;
+                totalSlides[1] = numSlides1;
+                createDots(1, numSlides1);
+
+                // Carrossel 2 (Casa 183)
+                const carousel2Track = document.querySelector('#carousel2 .carousel-track');
+                const numSlides2 = carousel2Track.children.length;
+                totalSlides[2] = numSlides2;
+                createDots(2, numSlides2);
+
+                // Carrossel 3 (Casa 107)
+                const carousel3Track = document.querySelector('#carousel3 .carousel-track');
+                const numSlides3 = carousel3Track.children.length;
+                totalSlides[3] = numSlides3;
+                createDots(3, numSlides3);
+
+                // Carrossel 4 (Projeto A&N)
+                const carousel4Track = document.querySelector('#carousel4 .carousel-track');
+                const numSlides4 = carousel4Track.children.length;
+                totalSlides[4] = numSlides4;
+                createDots(4, numSlides4);
+            });
+        </script>
+
+        <script>
+            document.getElementById('aboutVideoWrapper').onclick = function() {
+                this.innerHTML = `
+                  <iframe 
+                    src="https://www.youtube.com/embed/c2jaLNjUJAE?autoplay=1" 
+                    title="Vídeo Institucional Renan Sousa"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;">
+                  </iframe>
+                `;
+                this.style.paddingTop = '0';
+                this.style.height = '0';
+                this.style.position = 'relative';
+                this.style.paddingBottom = '130%';
+            };
+        </script>
+
+        <script>
+            document.getElementById('contactVideoWrapper').onclick = function() {
+                this.innerHTML = `
+                  <iframe 
+                    src="https://www.youtube.com/embed/1_edb_sGuO0?autoplay=1" 
+                    title="Vídeo Casa 05 - Renan Sousa"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"></iframe>
+                `;
+                this.style.paddingTop = '0';
+                this.style.height = '0';
+                this.style.position = 'relative';
+                this.style.paddingBottom = '130%';
+            };
+        </script>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Pega os valores dos campos
+                var nome = document.getElementById('name').value.trim();
+                var email = document.getElementById('email').value.trim();
+                var telefone = document.getElementById('phone').value.trim();
+                var mensagem = document.getElementById('message').value.trim();
+
+                // Monta a mensagem
+                var texto = `Olá! Gostaria de mais informações sobre construção.\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*Celular:* ${telefone}\n*Mensagem:* ${mensagem}`;
+
+                // Codifica para URL
+                var textoEncoded = encodeURIComponent(texto);
+
+                // Número do WhatsApp (sem espaços, com DDI e DDD)
+                var numero = '5516992646303';
+
+                // Monta o link do WhatsApp
+                var link = `https://wa.me/${numero}?text=${textoEncoded}`;
+
+                // Abre o WhatsApp
+                window.open(link, '_blank');
+            });
+        </script>
     </div>
 
     <script>
@@ -2147,71 +2423,8 @@ header('Content-Type: text/html; charset=utf-8');
         window.scrollTo(0, 0); // Garante que o usuário fique no topo
       }, 2000);
     </script>
-
-    <script>
-      document.getElementById('aboutVideoWrapper').onclick = function() {
-        this.innerHTML = `
-          <iframe 
-            src="https://www.youtube.com/embed/c2jaLNjUJAE?autoplay=1" 
-            title="Vídeo Institucional Renan Sousa"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;">
-          </iframe>
-        `;
-        this.style.paddingTop = '0';
-        this.style.height = '0';
-        this.style.position = 'relative';
-        this.style.paddingBottom = '130%';
-      };
-    </script>
-
-    <script>
-      document.getElementById('contactVideoWrapper').onclick = function() {
-        this.innerHTML = `
-          <iframe 
-            src="https://www.youtube.com/embed/1_edb_sGuO0?autoplay=1" 
-            title="Vídeo Casa 05 - Renan Sousa"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 15px;"></iframe>
-        `;
-        this.style.paddingTop = '0';
-        this.style.height = '0';
-        this.style.position = 'relative';
-        this.style.paddingBottom = '130%';
-      };
-    </script>
-
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Pega os valores dos campos
-        var nome = document.getElementById('name').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var telefone = document.getElementById('phone').value.trim();
-        var mensagem = document.getElementById('message').value.trim();
-
-        // Monta a mensagem
-        var texto = `Olá! Gostaria de mais informações sobre construção.\n\n*Nome:* ${nome}\n*E-mail:* ${email}\n*Celular:* ${telefone}\n*Mensagem:* ${mensagem}`;
-
-        // Codifica para URL
-        var textoEncoded = encodeURIComponent(texto);
-
-        // Número do WhatsApp (sem espaços, com DDI e DDD)
-        var numero = '5516992646303';
-
-        // Monta o link do WhatsApp
-        var link = `https://wa.me/${numero}?text=${textoEncoded}`;
-
-        // Abre o WhatsApp
-        window.open(link, '_blank');
-    });
-    </script>
 </body>
 </html>
 
+    
     
