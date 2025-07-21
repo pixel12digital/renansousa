@@ -1,3 +1,9 @@
+# Proposta Magnética
+
+Acesse localmente em:
+
+http://localhost:8080/Renan/public_html/proposta-magnetica/index.html
+
 # 🎯 Proposta Magnética - Landing Page de Vendas
 
 ## 📋 Sobre o Projeto

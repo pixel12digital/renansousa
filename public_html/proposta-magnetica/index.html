@@ -20,6 +20,24 @@
     })(window,document,'script','dataLayer','GTM-W4T66DD');
     </script>
 
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1311867673924397');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1311867673924397&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <style>
         * {
             margin: 0;
@@ -824,7 +842,137 @@
             90% { opacity: 1; }
             100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
-    </style>
+
+.interior-proposta-img {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s cubic-bezier(0.4,0.2,0.2,1), box-shadow 0.4s, filter 0.4s;
+    cursor: zoom-in;
+    box-shadow: 0 8px 32px rgba(43,58,103,0.13);
+    border-radius: 18px;
+    background: #fff;
+    will-change: transform, box-shadow, filter;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    margin: 0 12px;
+    display: block;
+}
+.interior-proposta-img.visible {
+    opacity: 1;
+    transform: none;
+}
+.interior-proposta-img:hover {
+    transform: scale(1.08) rotate(-2deg) !important;
+    box-shadow: 0 0 0 8px #ff6b6b55, 0 16px 48px 0 #ff8e5355;
+    filter: brightness(1.08) saturate(1.2);
+    z-index: 2;
+}
+.interior-proposta-img:nth-child(1) { transform: rotate(-3deg); }
+.interior-proposta-img:nth-child(2) { transform: rotate(2deg); }
+.interior-proposta-img:nth-child(3) { transform: rotate(-1.5deg); }
+
+.interior-proposta-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    flex-wrap: nowrap;
+}
+@media (max-width: 700px) {
+  .interior-proposta-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .interior-proposta-img {
+    margin: 12px 0;
+    max-width: 95vw;
+  }
+}
+
+/* Lightbox overlay */
+#lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(30,24,62,0.92);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    transition: opacity 0.3s;
+}
+#lightbox-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+#lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 18px;
+    box-shadow: 0 0 40px #000a;
+    background: #fff;
+    animation: lightboxIn 0.4s;
+}
+@keyframes lightboxIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.bonus-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  background: transparent;
+  border-radius: 18px;
+  margin-bottom: 36px;
+  box-shadow: 0 8px 32px rgba(43,58,103,0.10);
+  padding: 32px 24px;
+  border: 1.5px solid #CFA93533;
+}
+.bonus-flex-row .bonus-img {
+  max-width: 260px;
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 0 0 6px #CFA935, 0 8px 32px rgba(207,169,53,0.18);
+  background: #181A2E;
+  margin: 0;
+  display: block;
+  padding: 12px;
+}
+.bonus-flex-row .bonus-text {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+.bonus-flex-row .bonus-text h4 {
+  color: #ffc107;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+.bonus-flex-row .bonus-text p {
+  color: #e0e0e0;
+  font-size: 1.08rem;
+}
+@media (max-width: 900px) {
+  .bonus-flex-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px 8px;
+  }
+  .bonus-flex-row .bonus-text {
+    text-align: center;
+  }
+  .bonus-flex-row .bonus-img {
+    margin-bottom: 18px;
+  }
+}
+</style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -868,7 +1016,7 @@
             <h1 class="fade-in">🎯 Pare de perder clientes agora: Aumente em 80% a sua taxa de fechamento de Obras e Projetos com uma Proposta Comercial Magnética que vende por você!</h1>
             <p class="subtitle fade-in">✨ Envie propostas irresistíveis, profissionais e persuasivas em minutos, mesmo que você não entenda nada de marketing ou design. Siga somente a nossa receita de bolo! 🎂</p>
             
-            <a href="#comprar" class="cta-button fade-in">🔥 Quero minha Proposta Magnética</a>
+            <a href="https://pay.kiwify.com.br/0ijMcym" class="cta-button fade-in" target="_blank">🔥 Quero minha Proposta Magnética</a>
 
             <div class="video-container fade-in">
                 <div class="video-placeholder">
@@ -919,10 +1067,22 @@
                 <img src="assets/images/mokup-desktop.jpeg" alt="Mockup Desktop Proposta Magnética" style="max-width: 260px; width: 100%; border-radius: 18px; box-shadow: 0 8px 32px rgba(43,58,103,0.13); background: #fff; flex-shrink:0;">
             </div>
             <div style="text-align:center; margin-top:32px;">
-                <a href="#comprar" class="cta-button fade-in" style="font-size:1.3rem; padding:22px 48px;">💎 Quero minha Proposta Magnética agora por R$37,90</a>
+                <a href="https://pay.kiwify.com.br/0ijMcym" class="cta-button fade-in" style="font-size:1.3rem; padding:22px 48px;" target="_blank">💎 Quero minha Proposta Magnética agora por R$37,90</a>
             </div>
         </div>
     </section>
+
+    <!-- Interior da Proposta - Imagens -->
+    <section class="section fade-in" style="background:#fff;">
+      <div class="container interior-proposta-row">
+        <img src="assets/images/interiorproposta01.jpeg" class="interior-proposta-img" alt="Interior Proposta 1">
+        <img src="assets/images/interiorproposta02.jpeg" class="interior-proposta-img" alt="Interior Proposta 2">
+        <img src="assets/images/interiorproposta03.jpeg" class="interior-proposta-img" alt="Interior Proposta 3">
+      </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox-overlay" onclick="this.classList.remove('active');"></div>
 
     <!-- Benefits Section -->
     <section class="section fade-in">
@@ -1041,19 +1201,30 @@
         <div class="container">
             <h2 class="fade-in">🎁 Ganhe 3 BÔNUS Exclusivos – Totalmente GRÁTIS!</h2>
             <p class="fade-in" style="text-align: center; font-size: 1.2rem; margin-bottom: 40px;">Para deixar sua proposta ainda mais poderosa, você leva também:</p>
-            
-            <div class="bonuses-grid">
-                <div class="bonus-item fade-in">
-                    <h4>🎁 Bônus 1: Modelo de Contrato de Prestação de Serviços</h4>
-                    <p>Receba um contrato padrão, editável, pronto para formalizar seus acordos com clareza, segurança jurídica e profissionalismo. Evite dores de cabeça e garanta que tudo fique combinado por escrito.</p>
+            <div class="bonuses-list">
+                <!-- Bônus 1 -->
+                <div class="bonus-flex-row fade-in">
+                    <img src="assets/images/modelo-de-contrato.jpeg" alt="Bônus 1: Modelo de Contrato" class="bonus-img">
+                    <div class="bonus-text">
+                        <h4>🎁 Bônus 1: Modelo de Contrato de Prestação de Serviços</h4>
+                        <p>Receba um contrato padrão, editável, pronto para formalizar seus acordos com clareza, segurança jurídica e profissionalismo. Evite dores de cabeça e garanta que tudo fique combinado por escrito.</p>
+                    </div>
                 </div>
-                <div class="bonus-item fade-in">
-                    <h4>🎁 Bônus 2: 1 Hora de Consultoria Exclusiva</h4>
-                    <p>Agende uma sessão individual de consultoria estratégica de vendas comigo. Vou analisar sua realidade e te dar um plano prático para aplicar o modelo de proposta, corrigir erros e aumentar sua taxa de fechamento.</p>
+                <!-- Bônus 2 -->
+                <div class="bonus-flex-row fade-in">
+                    <img src="assets/images/construindo-pra-vender.jpeg" alt="Bônus 2: Guia do Investidor Milionário" class="bonus-img">
+                    <div class="bonus-text">
+                        <h4>🎁 Bônus 2: Guia do Investidor Milionário: Construindo para vender</h4>
+                        <p>Guia prático para quem quer lucrar construindo e vendendo imóveis. Estratégias e dicas para maximizar seus resultados no mercado imobiliário.</p>
+                    </div>
                 </div>
-                <div class="bonus-item fade-in">
-                    <h4>🎁 Bônus 3: Meu Funil de Vendas Completo</h4>
-                    <p>Descubra o exato funil que uso para captar leads qualificados, nutrir relacionamentos e transformar visitas em contratos assinados. Você economiza anos de tentativas e erros.</p>
+                <!-- Bônus 3 -->
+                <div class="bonus-flex-row fade-in">
+                    <img src="assets/images/funil-de-vendas-pra-construtoras.jpeg" alt="Bônus 3: Funil de Vendas" class="bonus-img">
+                    <div class="bonus-text">
+                        <h4>🎁 Bônus 3: Funil de vendas para construtoras de alto padrão</h4>
+                        <p>Descubra o exato funil que uso para captar leads qualificados, nutrir relacionamentos e transformar visitas em contratos assinados. Você economiza anos de tentativas e erros.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1113,7 +1284,7 @@
                 <div class="price">R$ 37,90</div>
                 <p style="font-size: 1.1rem; margin-bottom: 30px;">Sem mensalidades. Sem taxas ocultas. É tudo seu para usar quantas vezes quiser ✅</p>
                 
-                <a href="#" class="cta-button" style="font-size: 1.5rem; padding: 25px 50px;">🚀 Quero minha Proposta Magnética Agora</a>
+                <a href="https://pay.kiwify.com.br/0ijMcym" class="cta-button" style="font-size: 1.5rem; padding: 25px 50px;" target="_blank">🚀 Quero minha Proposta Magnética Agora</a>
             </div>
         </div>
     </section>
@@ -1152,7 +1323,7 @@
     <!-- Fixed CTA -->
     <div class="fixed-cta">
         <span>🚀 Comece agora a aumentar a sua taxa de conversão em mais de 80%!</span>
-        <a href="#comprar" class="cta-button">💎 Comprar agora por apenas R$37,90</a>
+        <a href="https://pay.kiwify.com.br/0ijMcym" class="cta-button" target="_blank">💎 Comprar agora por apenas R$37,90</a>
     </div>
 
     <script>
@@ -1410,6 +1581,32 @@
                     this.querySelector('i').style.color = '#667eea'; // Reverte para a cor original
                 });
             });
+        });
+
+        // Fade-in animado para as imagens do interior da proposta
+        function fadeInInteriorImgs() {
+          document.querySelectorAll('.interior-proposta-img').forEach(function(img) {
+            const rect = img.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+              img.classList.add('visible');
+            }
+          });
+        }
+        window.addEventListener('scroll', fadeInInteriorImgs);
+        document.addEventListener('DOMContentLoaded', fadeInInteriorImgs);
+
+        // Lightbox simples ao clicar na imagem
+        const imgs = document.querySelectorAll('.interior-proposta-img');
+        const overlay = document.getElementById('lightbox-overlay');
+        imgs.forEach(img => {
+          img.addEventListener('click', function(e) {
+            overlay.innerHTML = `<img src='${img.src}' alt='${img.alt}'>`;
+            overlay.classList.add('active');
+          });
+        });
+        overlay.addEventListener('click', function() {
+          overlay.classList.remove('active');
+          overlay.innerHTML = '';
         });
     </script>
 </body>
